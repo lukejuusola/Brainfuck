@@ -131,13 +131,19 @@ void Brainfuck::run()
 {
   this->run(true);
 }
+
+/*
+ * the main run function. 
+ * prompt -- whether or not we should interact with the user based on whether
+ *           they are running an external script or not.
+ */
 void Brainfuck::run(bool prompt)
 {
-  std::cout << "Welcome to the Brainfuck Interpreter";
+  if(prompt)
+    std::cout << "Welcome to the Brainfuck Interpreter" << std::endl;
   while(true)
     {
       this->reset_heads();
-      std::cout << std::endl;
       if(prompt)
 	{
 	  this->getProgram();
@@ -147,14 +153,22 @@ void Brainfuck::run(bool prompt)
 	{
 	  while((unsigned int) this->program_head < this->program.length())
 	    this->run_command();
-	  std::cout << std::endl;
+	  
+	  // If we're running an external script, break. 
+	  // Otherwise we aren't, so newline for formatting.
+	  if(!prompt)
+	    break;
+	  else
+	    std::cout << std::endl;
 	}
-      catch(...)
+      catch(...) // We need better error handling
 	{
 	  std::cout << "An error occurred with the program" << std::endl;
 	}
     }
-  std::cout << std::endl << std::endl << "Program terminated" << std::endl;
+  if(prompt) // if we're running an external script, we don't need this.
+    std::cout << std::endl << std::endl << "Program terminated";
+  std::cout << std::endl;
 }
 void Brainfuck::getProgram()
 {

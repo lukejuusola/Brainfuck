@@ -10,17 +10,15 @@ class Brainfuck{
   std::vector<int> *data;
   int data_head;
   
-  std::string input;
+  // input string info
   int input_head;
-  int input_length;
 
-  std::string program;
+  // program string info
   int program_head;
-  int program_length;
 
   void reset_heads();
  
-  // The Brainfuck commandsx
+  // The Brainfuck commands
   void left_angle();
   void right_angle();
   void plus();
@@ -38,6 +36,9 @@ class Brainfuck{
   void run();
   void getInput();
   void getProgram();
+
+  std::string program;
+  std::string input;
 };
 
 #endif //_BRAINFUCK_H
