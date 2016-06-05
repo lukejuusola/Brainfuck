@@ -1,8 +1,8 @@
 # Brainfuck
 Everything Brainfuck I decide to write. Interpreter, programs, compiler(?), et cetera.
 
-Currently implemented: 
-  Interpreter
+Currently implemented: \n 
+\t  Interpreter -- needs better error handling and commenting
   
   Programs:
     reverse_string
