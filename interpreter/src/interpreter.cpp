@@ -6,7 +6,7 @@ void usage()
   std::cout << "./interpreter <program.txt> <input.txt>" << std::endl;
 }
 
-int main(int argc, char* argv){
+int main(int argc, char* argv[]){
   if(argc == 1)
     {
       Brainfuck bf;
